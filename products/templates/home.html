@@ -2,15 +2,15 @@
 
 {% block content %}
 <form class="row g-3">
-  <div class="col-md-6">
+  <div class="col-md-3">
     <label for="product_name" class="form-label">Product Name</label>
     <input type="text" class="form-control" id="product_name">
   </div>
-  <div class="col-md-6">
+  <div class="col-md-3">
     <label for="min_price" class="form-label">Min Price</label>
     <input type="number" class="form-control" id="min_price">
   </div>
-  <div class="col-12">
+  <div class="col-3">
     <label for="max_price" class="form-label">Max Price</label>
     <input type="number" class="form-control" id="max_price" placeholder="1234 Main St">
   </div>
@@ -23,8 +23,8 @@
     <input type="text" class="form-control" id="inputCity">
   </div>
   <div class="col-md-4">
-    <label for="inputState" class="form-label">State</label>
-    <select id="inputState" class="form-select">
+    <label for="inputCategory" class="form-label">Category</label>
+    <select id="inputCategory" class="form-select">
       <option selected>Choose...</option>
       <option>Clothes</option>
       <option>Shoes</option>
@@ -36,4 +36,21 @@
     <button type="submit" class="btn btn-primary">Sign in</button>
   </div>
 </form>
+<div class="container">
+  <div class="row row-cols-4 mt-3 g-3">
+    {% for product in products %}
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="https://fcdn.belive.ge/livege/media/77069/Niniashvili.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text fw-bold">{{ product.price }}</p>
+          <p class="card-text">{{ product.description }}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
